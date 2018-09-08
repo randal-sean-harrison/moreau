@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <!--<meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Moreau</title>
+
+   <!-- Favicon -->
+   <link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
+   <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
+   <link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png">
+   <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png">
+   <link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png">
+   <link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png">
+   <link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png">
+   <link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png">
+   <link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png">
+   <link rel="icon" type="image/png" sizes="192x192" href="img/android-icon-192x192.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+   <link rel="manifest" href="img/manifest.json">
+   <meta name="msapplication-TileColor" content="#ffffff">
+   <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png">
+   <meta name="theme-color" content="#ffffff">
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+   <!-- Google Prettify CSS -->
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.css">
+
+   <!-- font-awesome web fonts-->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Open+Sans:400,400i,600" rel="stylesheet">
+
+   <!-- jQuery UI css -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+
+   <!-- Filesaver -->
+   <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
+
+   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+   <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+   <![endif]-->
+
+   <!-- Font Awesome Web Icons -->
+   <script defer src="js/all.js"></script>
+   <!--load all styles -->
+
+   <!-- Main local stylesheet -->
+   <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+
+   <div class="container-fluid" id="nd-header">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-6 hidden-xs">
+               <h5 id="nd-link" aria-label="University of Notre Dame"><a href="http://nd.edu">UNIVERSITY <em>of</em> NOTRE DAME</a></h5>
+            </div>
+            <div class="hidden-sm hidden-md hidden-lg">
+               <h6 id="nd-link" aria-label="University of Notre Dame"><a href="http://nd.edu">UNIVERSITY <em>of</em> NOTRE DAME</a></h6>
+            </div>
+            <!-- .col-sm-6 -->
+            <div class="col-sm-6 hidden-xs">
+               <h5 id="provost-link" class="text-right" aria-label="Office of the Provost"><a href="http://provost.nd.edu">OFFICE <em>of the</em> PROVOST</a></h5>
+            </div>
+            <!-- .col-sm-6 -->
+         </div>
+         <!-- .row -->
+      </div>
+      <!-- .container -->
+   </div>
+   <!-- #nd-header -->
+
+   <div class="container">
+
+      <div class="row push-down-2">
+         <div class="col-sm-10">
+            <h3>Moreau Weekly Writings Rubric</h3>
+         </div>
+         <div class="col-sm-2" id="header-area">
+            <p class="text-right"><span class="badge text-right" id="number-students"></span><span id="show-all-students" data-toggle="tooltip" data-placement="bottom" title="View student grades"><i class="fal fa-3x fa-fw fa-user-graduate link-blue pointer"></i></span></p>
+         </div>
+         <div class="col-sm-12 push-down-1" id="purge-reminder">
+            <div class="alert alert-info">
+               <p><a class="close" data-dismiss="alert" aria-label="close">×</a>
+                  <i class="far fa-fw fa-lg link-blue fa-user-times"></i> Remember to reset the student roster before each new session. <button id="erase-local-storage" class="btn btn-primary">Reset</button></p>
+            </div>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-sm-7">
+
+            <form>
+
+               <div class="form-group">
+                  <label for="button-size">Student</label>
+                  <select class="form-control" id="student-dropdown">
+                     <option id="select-something" value="" selected="selected" disabled="disabled">Select</option>
+                     <option value="jblanch2@nd.edu">Blanchard, Julia</option>
+                     <option value="acreek@nd.edu">Creek, Aerin</option>
+                     <option value="jfolts2@nd.edu">Folts, John</option>
+                     <option value="tgallag6@nd.edu">Gallagher, Timothy</option>
+                     <option value="ehaderer@nd.edu">Haderer, Erika</option>
+                     <option value="dherndo2@nd.edu">Herndon, Destiny</option>
+                     <option value="bhilger@nd.edu">Hilger, Bri</option>
+                     <option value="dmalloy1@nd.edu">Malloy, Daniel</option>
+                     <option value="pmcardle@nd.edu">McArdle, Patrick</option>
+                     <option value="mmcloug2@nd.edu">McLoughlin, Molly</option>
+                     <option value="kmcmilla@nd.edu">McMillan, Kaden</option>
+                     <option value="aosulliv@nd.edu">O'Sullivan, Anthony</option>
+                     <option value="codom2@nd.edu">Odom, Christopher</option>
+                     <option value="tpenny@nd.edu">Penny, Thomas</option>
+                     <option value="jpiment2@nd.edu">Pimentel, Julia</option>
+                     <option value="tshannon@nd.edu">Shannon, Tess</option>
+                     <option value="atisa@nd.edu">Tisa, Analiese</option>
+                     <option value="nwilson7@nd.edu">Wilson, Noah</option>
+                  </select>
+               </div>
+
+               <hr>
+
+               <p><strong>Length requirement</strong><span class="descriptor">Response meets/exceeds 200 words</span></p>
+               <label class="radio-inline">
+                  <input value="0" type="radio" name="optradio1"> 0 pt
+               </label>
+               <label class="radio-inline">
+                  <input value="5" type="radio" name="optradio1"> 5 pts
+               </label>
+
+               <hr>
+
+               <p><strong>Engaging with the readings</strong><span class="descriptor">Evidence that students read/viewed the material , w/ clear reference (quoting/paraphrasing) of assigned readings and viewings</span></p>
+               <label class="radio-inline">
+                  <input value="1" type="radio" name="optradio2"> 1 pt
+               </label>
+               <label class="radio-inline">
+                  <input value="2" type="radio" name="optradio2"> 2 pts
+               </label>
+               <label class="radio-inline">
+                  <input value="3" type="radio" name="optradio2"> 3 pts
+               </label>
+               <label class="radio-inline">
+                  <input value="4" type="radio" name="optradio2"> 4 pts
+               </label>
+               <label class="radio-inline">
+                  <input value="5" type="radio" name="optradio2"> 5 pts
+               </label>
+
+               <hr>
+
+               <p><strong>Saying interesting &amp; useful things</strong><span class="descriptor">Saying something interesting and useful by relating topics to personal experiences, connections to other courses, or prior knowledge of the topic</span></p>
+               <label class="radio-inline">
+                  <input value="1" type="radio" name="optradio3"> 1 pt
+               </label>
+               <label class="radio-inline">
+                  <input value="2" type="radio" name="optradio3"> 2 pts
+               </label>
+               <label class="radio-inline">
+                  <input value="3" type="radio" name="optradio3"> 3 pts
+               </label>
+               <label class="radio-inline">
+                  <input value="4" type="radio" name="optradio3"> 4 pts
+               </label>
+               <label class="radio-inline">
+                  <input value="5" type="radio" name="optradio3"> 5 pts
+               </label>
+
+               <hr>
+
+               <p><strong>Thinking yourself into sense</strong><span class="descriptor">Rather than “performing studenting,” the writer used the assignment as a tool to think himself or herself into sense</span></p>
+               <label class="radio-inline">
+                  <input value="1" type="radio" name="optradio4"> 1 pt
+               </label>
+               <label class="radio-inline">
+                  <input value="2" type="radio" name="optradio4"> 2 pts
+               </label>
+               <label class="radio-inline">
+                  <input value="3" type="radio" name="optradio4"> 3 pts
+               </label>
+               <label class="radio-inline">
+                  <input value="4" type="radio" name="optradio4"> 4 pts
+               </label>
+               <label class="radio-inline">
+                  <input value="5" type="radio" name="optradio4"> 5 pts
+               </label>
+
+            </form>
+
+            <div class="push-down-3">
+               <button type="button" class="btn btn-default" id="clear-form"><i class="far fa-fw fa-sync-alt"></i>Reset Form</button>
+               <button type="button" class="btn btn-primary" id="email-student"><i class="far fa-fw fa-paper-plane"></i>Email Student</button>
+            </div>
+
+         </div>
+         <!-- .col-sm-7 -->
+
+         <div class="col-sm-5">
+
+            <form>
+
+               <div class="form-group steps">
+                  <strong>Comments</strong>
+                  <textarea id="comments" class="form-control" name="comment" rows="18" cols="80"></textarea>
+               </div>
+
+            </form>
+
+            <p class="alert alert-default push-down-2"><strong>Total Points: </strong> <span id="totalpoints"></span></p>
+
+         </div>
+         <!-- .col-sm-5 -->
+      </div>
+      <!-- .row -->
+
+      <!-- Modal -->
+      <div class="modal fade" tabindex="-1" role="dialog" id="student-grades-modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Student Grades</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+
+   </div>
+   <!-- .container -->
+
+
+
+
+
+
+
+   <!-- Used by Permission Modal include -->
+   <div w3-include-html="modal-about-project.html"></div>
+
+   <!-- Used by Permission Modal include -->
+   <div w3-include-html="modal-permission.html"></div>
+
+   <!-- Scripts - - - - - - - - - - - - - - - - - - - - - - - -->
+
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+   <!-- jQuery UI Library -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+   <!-- Bootstrap js -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+   <!-- Local script -->
+   <script src="js/main.js"></script>
+
+</body>
+
+</html>
